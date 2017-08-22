@@ -1,1 +1,0 @@
-# aurelia-offline-first
