@@ -1,0 +1,31 @@
+<template>
+  <section class="au-animate">
+    <h2>${heading}</h2>
+    <form role="form" submit.delegate="submit()">
+      <div class="form-group">
+        <label for="fn">email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" value.bind="email"> </div>
+      <div class="form-group">
+        <label for="ln">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" value.bind="password">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <form  class="form" submit.trigger="add()">
+      <div class="input-container input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="What need to be done ?" value.bind="todoText">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Add task</button>
+          </span>
+      </div>
+    </form>
+    <div class="todo-container au-animate" repeat.for="item of filteredItems">
+      <div class="todo row clearfix">
+        <div class="avatar col-sm-2">
+          <div class="moment">${$parent.fromNow(item.timestamp)}</div>
+        </div>
+        <div class="description col-sm-10">${item.text}</div>
+      </div>
+    </div>
+  </section>
+</template>
